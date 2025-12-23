@@ -1,3 +1,8 @@
-body {
-    background: #5c9447;
+:root {
+    --color-primary: #557739;
+    --color-secondary: #86BB5A;
+    --color-accent: #E6DA57;
+    --color-heading: #77582C;
+    --color-body: grey;
 }
+
