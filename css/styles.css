@@ -225,3 +225,19 @@ a {
 
 /* Inputs */
 
+.input {
+    padding: 1.5rem 2.5rem; 
+    border: 3px solid var(--color-heading);
+    outline: 0;
+    color: var(--color-heading);
+}
+
+::placeholder {
+    color: grey;
+}
+
+@media screen and (min-width: 1024px) {
+    .input {
+        font-size: 1.5rem;
+    }
+}
