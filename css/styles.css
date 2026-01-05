@@ -332,3 +332,14 @@ a {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+/*Testimonial*/
+
+.testimonial {
+    padding: 3rem;
+
+}
+
+.testimonial__image {
+    width: 100%;
+}
