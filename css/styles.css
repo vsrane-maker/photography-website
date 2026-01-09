@@ -298,9 +298,16 @@ a {
     letter-spacing: 1px;
     display: block;
 }
-
+.plan:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
 .plan .list__item {
     margin-bottom: 2rem;
+}
+
+.plan{
+    transition: transform 0.3s ease-out;
 }
 
 @media screen and (min-width: 1024px) {
@@ -331,6 +338,10 @@ a {
 @media screen and (min-width: 768px) {
     .grid--1x2 {
         grid-template-columns: 2fr 3fr;
+    }
+
+    .grid--1x3 {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
@@ -541,3 +552,15 @@ a {
         align-self: center;
     }
 }
+
+
+/* Plans Block */
+.block-plans .grid {
+    gap: 8rem 4rem;
+}
+
+.block-plans .card {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
