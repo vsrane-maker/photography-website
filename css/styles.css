@@ -339,6 +339,9 @@ a {
     .grid--1x2 {
         grid-template-columns: 2fr 3fr;
     }
+    .grid--1x2-1 {
+        grid-template-columns: 1fr 1fr;
+    }
 
     .grid--1x3 {
         grid-template-columns: 1fr 1fr 1fr;
@@ -564,3 +567,12 @@ a {
     margin: 0 auto;
 }
 
+
+
+/* Feature */
+.feature {
+    gap: 4rem;
+}
+.feature__heading {
+    margin: 1rem 0;
+}
