@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+     <nav class="nav collapsible">
+        <a href="/"><img style="width: 100px; height: auto" src="images/logo.png" alt=""></a>
+        <svg class="icon icon--black nav__toggler">
+            <use xlink:href="images/sprite.svg#menu"></use>
+        </svg>
+        <ul class="list nav__list collapsible__content">
+            <li class="nav__item"><a href="#">Gallery</a></li>
+            <li class="nav__item"><a href="#">About</a></li>
+            <li class="nav__item"><a href="#">Bookings</a></li>
+        </ul>
+    </nav>
    <section class="block hero">
     <div class=" grid grid--1x2">
         <header class="block__header hero__content">
@@ -15,7 +26,11 @@
             <p class="hero__tagline">Nature, Portraits, Sports and More</p>
             <a href="" class="btn btn--accent btn--stretched">View Gallery</a>
         </header>
-        <img class="hero__image"src="images/mounttamalpais-23.jpg" alt="">
+        <picture>
+            <source type="image/jpg" srcset="images/resized/mounttamalpais-23_resized.jpg 2x, images/resized/mounttamalpais_resized_small.jpg 1x">
+            
+            <img class="hero__image"src="images/mounttamalpais-23.jpg" alt="">
+        </picture>
     </div>
    </section>
     <script src="js/main.js"></script>
