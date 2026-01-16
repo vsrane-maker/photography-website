@@ -647,3 +647,44 @@ a {
 .category-card:hover {
     transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+  .gallery--categories {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* Gallery Grid */
+.masonry--gallery {
+    column-count: 3;
+    column-gap: 1.5rem;
+    max-width: 1200px;
+    margin: auto;
+    padding: 4rem 2rem;
+}
+
+.masonry--gallery img {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    
+    break-inside: avoid;
+    transition: transform 0.3s;
+}
+
+.masonry--gallery img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+@media screen and (max-width: 1024px) {
+    .masonry--gallery {
+        column-count: 2;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .masonry--gallery {
+        column-count: 1;
+    }
+}
