@@ -473,12 +473,14 @@ a {
 
 .nav {
     background: white;
+    top: 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 0 1rem;
-    
+    position: sticky;
     align-items: center;
+    z-index: 1000;
 
 }
 
@@ -525,6 +527,8 @@ a {
         font-size: 2rem;
         max-height: 100%;
         opacity: 1;
+        position: sticky;
+        top: 0;
     }
 
     .nav__item {
