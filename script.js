@@ -1,15 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("bookingForm");
-  const status = document.getElementById("status");
+console.log("✅ script.js loaded");
 
-  if (!form) return;
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("✅ DOMContentLoaded fired");
+
+  const form = document.getElementById("bookingForm");
+  const statusEl = document.getElementById("status");
+
+  console.log("form:", form);
+  console.log("statusEl:", statusEl);
+
+  if (!form || !statusEl) return;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    status.textContent = "Sending…";
+    console.log("✅ submit handler ran");
+
+    statusEl.textContent = "Sending…";
 
     const data = Object.fromEntries(new FormData(form).entries());
     data.partySize = Number(data.partySize);
+
+    console.log("payload:", data);
 
     try {
       const res = await fetch("/api/booking", {
@@ -18,14 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(data),
       });
 
-      const result = await res.json();
+      const out = await res.json().catch(() => ({}));
+      console.log("response status:", res.status, "body:", out);
 
-      if (!res.ok) throw new Error(result.error || "Failed");
+      if (!res.ok) throw new Error(out.error || "Request failed");
 
-      status.textContent = "Sent! I’ll get back to you soon.";
+      statusEl.textContent = "Sent! I’ll get back to you soon.";
       form.reset();
     } catch (err) {
-      status.textContent = "Could not send. Please try again.";
+      console.error("❌ submit error:", err);
+      statusEl.textContent = "Could not send. Please try again.";
     }
   });
 });
