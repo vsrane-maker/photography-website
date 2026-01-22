@@ -64,31 +64,7 @@ Location: ${cleanLocation}
         },
       })
     );
-
-    await ses.send(
-      new SendEmailCommand({
-        Source: process.env.FROM_EMAIL,
-        Destination: { ToAddresses: [cleanEmail] },
-        ReplyToAddresses: [process.env.TO_EMAIL],
-        Message: {
-          Subject: { Data: `New Booking Inquiry — Confirmation ${cleanName}`, Charset: "UTF-8" },
-          Body: {
-            Text: {
-              Data:
-`This is a confirmation email about your booking request. Here are the details you submitted:
-
-Name: ${cleanName}
-Email: ${cleanEmail}
-Party size: ${cleanPartySize}
-Location: ${cleanLocation}
-`,
-              Charset: "UTF-8",
-            },
-          },
-        },
-      })
-    );
-
+    
     return res.status(200).json({ ok: true });
   } catch (err) {
     console.error("SES send failed:", err);
