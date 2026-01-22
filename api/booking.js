@@ -71,16 +71,31 @@ Location: ${cleanLocation}
         Destination: { ToAddresses: [cleanEmail] },
         ReplyToAddresses: [cleanEmail],
         Message: {
-          Subject: { Data: `New Booking Inquiry — ${cleanName}`, Charset: "UTF-8" },
+          Subject: { Data: `VJ's Visuals - Confirmation for Booking Inquiry`, Charset: "UTF-8" },
           Body: {
             Text: {
               Data:
-`New booking request:
+`Hi ${cleanName},
+
+Thank you for reaching out to VJ's Visuals! 
+Your booking has been successfully received.
+
+Here are the details you provided: 
 
 Name: ${cleanName}
 Email: ${cleanEmail}
 Party size: ${cleanPartySize}
 Location: ${cleanLocation}
+
+I will review your request and get back to you as soon as possible to discuss the next steps.
+
+If you have any additional details to share in the meantime, feel free to reply directly to this email.
+
+Looking forward to connecting with you!
+
+Best regards, 
+Viraaj Rane
+VJ's Visuals
 `,
               Charset: "UTF-8",
             },
