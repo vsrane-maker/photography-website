@@ -68,7 +68,7 @@ Location: ${cleanLocation}
     await ses.send(
       new SendEmailCommand({
         Source: process.env.FROM_EMAIL,
-        Destination: { ToAddresses: [process.env.TO_EMAIL] },
+        Destination: { ToAddresses: [cleanEmail] },
         ReplyToAddresses: [cleanEmail],
         Message: {
           Subject: { Data: `New Booking Inquiry — ${cleanName}`, Charset: "UTF-8" },
