@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("payload:", data);
 
     try {
+      // Sends post request to api/booking.js
       const res = await fetch("/api/booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
