@@ -595,21 +595,123 @@ a {
     }
 }
 
-/* Footer */
-.footer {
 
+/* ==============================
+   FOOTER
+================================ */
+
+.site-footer {
+  width: 100%;
+  background-color: #77582C;
+  color: #ffffff;
+  font-family: Merriweather, 'Times New Roman', Helvetica, serif;
+
+  padding: 1.5rem 1.5rem;
+  text-align: center;
 }
 
-.footer__section {
-    padding: 2rem;
-    border-bottom: 1px solid white;
+/* Force all footer text + links to be white */
+.site-footer,
+.site-footer * {
+  color: #ffffff;
 }
 
-.footer__heading {
-    text-transform: uppercase;
-    font-weight: 600;
+/* Inner wrapper */
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
 
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
 }
+
+/* Brand name */
+.footer-title {
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+/* Tagline */
+.footer-tagline {
+  font-size: 3rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Categories */
+.footer-genres {
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+  margin: 0.4rem 0;
+}
+
+/* Navigation links */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 3rem;
+  margin-top: 0.5rem;
+  color: white;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-nav a:hover {
+  opacity: 0.75;
+}
+
+/* Social links */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 3rem;
+  margin-top: 0.25rem;
+}
+
+.footer-social a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-social a:hover {
+  opacity: 0.75;
+  color: white;
+}
+
+/* Divider dots */
+.dot {
+  opacity: 0.7;
+}
+
+/* Copyright */
+.footer-copy {
+  font-size: 1.5rem;
+  opacity: 0.8;
+  margin-top: 1.5rem;
+}
+
+/* Responsive tweaks */
+@media screen and (min-width: 768px) {
+  .site-footer {
+    padding: 2rem 2rem;
+  }
+
+  .footer-nav,
+  .footer-social {
+    font-size: 2rem;
+    color: white;
+  }
+}
+
 
 /* Gallery */
 .gallery__header {

@@ -41,6 +41,7 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: "Invalid form fields." });
     }
 
+    // Email sent to myself notifying of new booking request
     await ses.send(
       new SendEmailCommand({
         Source: process.env.FROM_EMAIL,
@@ -65,6 +66,8 @@ Location: ${cleanLocation}
       })
     );
 
+
+    // Confirmation email to user requesting booking
     await ses.send(
       new SendEmailCommand({
         Source: process.env.FROM_EMAIL,
