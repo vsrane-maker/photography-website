@@ -64,7 +64,31 @@ Location: ${cleanLocation}
         },
       })
     );
-    
+
+    await ses.send(
+      new SendEmailCommand({
+        Source: process.env.FROM_EMAIL,
+        Destination: { ToAddresses: [process.env.TO_EMAIL] },
+        ReplyToAddresses: [cleanEmail],
+        Message: {
+          Subject: { Data: `New Booking Inquiry — ${cleanName}`, Charset: "UTF-8" },
+          Body: {
+            Text: {
+              Data:
+`New booking request:
+
+Name: ${cleanName}
+Email: ${cleanEmail}
+Party size: ${cleanPartySize}
+Location: ${cleanLocation}
+`,
+              Charset: "UTF-8",
+            },
+          },
+        },
+      })
+    );
+
     return res.status(200).json({ ok: true });
   } catch (err) {
     console.error("SES send failed:", err);
