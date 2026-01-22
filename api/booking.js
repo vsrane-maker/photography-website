@@ -69,7 +69,7 @@ Location: ${cleanLocation}
       new SendEmailCommand({
         Source: process.env.FROM_EMAIL,
         Destination: { ToAddresses: [cleanEmail] },
-        ReplyToAddresses: [cleanEmail],
+        ReplyToAddresses: [process.env.FROM_EMAIL],
         Message: {
           Subject: { Data: `VJ's Visuals - Confirmation for Booking Inquiry`, Charset: "UTF-8" },
           Body: {
