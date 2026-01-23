@@ -10,6 +10,7 @@ module.exports = async (req, res) => {
 
   const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses");
   const { Resend } = require("resend");
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const required = [
     "AWS_REGION",
@@ -19,7 +20,7 @@ module.exports = async (req, res) => {
     "TO_EMAIL",
   ];
 
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  
 
   for (const k of required) {
     if (!process.env[k]) return res.status(500).json({ error: `Missing env var: ${k}` });
