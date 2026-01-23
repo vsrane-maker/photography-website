@@ -9,6 +9,7 @@ module.exports = async (req, res) => {
   }
 
   const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses");
+  const { Resend } = require("resend");
 
   const required = [
     "AWS_REGION",
@@ -17,6 +18,9 @@ module.exports = async (req, res) => {
     "FROM_EMAIL",
     "TO_EMAIL",
   ];
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   for (const k of required) {
     if (!process.env[k]) return res.status(500).json({ error: `Missing env var: ${k}` });
   }
@@ -70,45 +74,18 @@ Location: ${cleanLocation}
 
 
     // Confirmation email to user requesting booking
-    await ses.send(
-      new SendEmailCommand({
-        Source: process.env.FROM_EMAIL,
-        Destination: { ToAddresses: [cleanEmail] },
-        ReplyToAddresses: [process.env.FROM_EMAIL],
-        Message: {
-          Subject: { Data: `VJ's Visuals - Confirmation for Booking Inquiry`, Charset: "UTF-8" },
-          Body: {
-            Text: {
-              Data:
-`Hi ${cleanName},
+    await resend.emails.send({
+      from: "VJ’s Visuals <bookings@viraajrane.com>",
+      to: cleanEmail,
+      reply_to: "viraajrane@gmail.com",
+      subject: "We received your booking request",
+      text: `Hi ${cleanName},
 
-Thank you for reaching out to VJ's Visuals! 
-Your booking has been successfully received.
+Thanks for reaching out! I’ve received your booking request and will get back to you shortly.
 
-Here are the details you provided: 
+– Viraaj`,
+    });
 
-Name: ${cleanName}
-Plan: ${cleansessionType}
-Email: ${cleanEmail}
-Party size: ${cleanPartySize}
-Location: ${cleanLocation}
-
-I will review your request and get back to you as soon as possible to discuss the next steps.
-
-If you have any additional details to share in the meantime, feel free to reply directly to this email.
-
-Looking forward to connecting with you!
-
-Best regards, 
-Viraaj Rane
-VJ's Visuals
-`,
-              Charset: "UTF-8",
-            },
-          },
-        },
-      })
-    );
 
     return res.status(200).json({ ok: true });
   } catch (err) {
