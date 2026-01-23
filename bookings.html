@@ -87,14 +87,17 @@
         </div>
     </section>
    
-<form id="bookingForm">
-  <input name="name" placeholder="Name" required />
-  <input name="email" type="email" placeholder="Email" required />
-  <input name="partySize" type="number" min="1" placeholder="Party size" required />
-  <input name="location" placeholder="Location" required />
-  <button type="submit">Send Request</button>
-  <p id="status"></p>
-</form>
+<div class="grid grid--1x2-1">
+    <h3 style="margin-left: 4rem">Fill out the form to request a booking.</h3>
+    <form id="bookingForm" class="booking__form">
+      <input class="input input__booking" name="name" placeholder="Name" required />
+      <input class="input input__booking" name="email" type="email" placeholder="Email" required />
+      <input class="input input__booking" name="partySize" type="number" min="1" placeholder="Party size" required />
+      <input class="input input__booking" name="location" placeholder="Location" required />
+      <button class="btn btn--accent btn--primary" type="submit">Send Request</button>
+      <p id="status"></p>
+    </form>
+</div>
 
 
 

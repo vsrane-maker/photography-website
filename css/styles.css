@@ -599,7 +599,11 @@ a {
 /* ==============================
    FOOTER
 ================================ */
+.footer {
+    padding: 2rem 2rem 0rem 2rem;
+    background-color: var(--color-heading);
 
+}
 .site-footer {
   width: 100%;
   background-color: #77582C;
@@ -793,4 +797,17 @@ a {
     .masonry--gallery {
         column-count: 1;
     }
+}
+
+
+/* Booking Form */
+.booking__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    
+}
+
+.input__booking {
+    margin-bottom: 1rem;
 }
