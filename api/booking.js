@@ -88,6 +88,7 @@ Your booking has been successfully received.
 Here are the details you provided: 
 
 Name: ${cleanName}
+Plan: ${cleansessionType}
 Email: ${cleanEmail}
 Party size: ${cleanPartySize}
 Location: ${cleanLocation}
