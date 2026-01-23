@@ -30,14 +30,15 @@ module.exports = async (req, res) => {
   });
 
   try {
-    const { name, email, partySize, location } = req.body || {};
+    const { name, sessionType, email, partySize, location } = req.body || {};
 
     const cleanName = String(name || "").trim();
     const cleanEmail = String(email || "").trim();
     const cleanLocation = String(location || "").trim();
     const cleanPartySize = Number(partySize);
+    const cleansessionType = String(sessionType || "").trim();
 
-    if (!cleanName || !cleanEmail || !cleanLocation || !Number.isFinite(cleanPartySize) || cleanPartySize < 1) {
+    if (!cleanName || !cleansessionType || !cleanEmail || !cleanLocation || !Number.isFinite(cleanPartySize) || cleanPartySize < 1) {
       return res.status(400).json({ error: "Invalid form fields." });
     }
 
@@ -55,6 +56,7 @@ module.exports = async (req, res) => {
 `New booking request:
 
 Name: ${cleanName}
+Session Type: ${cleansessionType}
 Email: ${cleanEmail}
 Party size: ${cleanPartySize}
 Location: ${cleanLocation}
