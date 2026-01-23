@@ -76,15 +76,15 @@ Location: ${cleanLocation}
 
     // Confirmation email to user requesting booking
     await resend.emails.send({
-      from: "VJ’s Visuals <bookings@viraajrane.com>",
+      from: "VJs Visuals <bookings@viraajrane.com>",
       to: cleanEmail,
       reply_to: "viraajrane@gmail.com",
       subject: "We received your booking request",
       text: `Hi ${cleanName},
 
-Thanks for reaching out! I’ve received your booking request and will get back to you shortly.
+Thanks for reaching out! Ive received your booking request and will get back to you shortly.
 
-– Viraaj`,
+ Viraaj`,
     });
 
 
