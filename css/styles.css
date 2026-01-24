@@ -810,4 +810,17 @@ a {
 
 .input__booking {
     margin-bottom: 1rem;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.formSubmit {
+    background-color: var(--color-primary);
+    
+}
+
+.formSubmit:hover {
+    background-color: white;
+    color: var(--color-primary);
+    border-color: var(--color-primary)
 }
