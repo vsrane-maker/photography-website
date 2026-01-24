@@ -79,12 +79,24 @@ Location: ${cleanLocation}
       from: "VJs Visuals <bookings@viraajrane.com>",
       to: cleanEmail,
       reply_to: "viraajrane@gmail.com",
-      subject: "We received your booking request",
+      subject: "Booking Request Confirmation - VJ's Visuals",
       text: `Hi ${cleanName},
 
 Thanks for reaching out! Ive received your booking request and will get back to you shortly.
+Here are the details you submitted: 
 
- Viraaj`,
+Name: ${cleanName}
+Email: ${cleanEmail}
+Session Type: ${cleansessionType}
+Party size: ${cleanPartySize}
+Location: ${cleanLocation}
+
+
+If you have any additional information to share, please email me at viraajrane@gmail.com
+
+ Best regards
+ Viraaj Rane
+ VJ's Visuals`,
     });
 
 
